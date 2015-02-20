@@ -1,0 +1,455 @@
+\documentclass[12pt,letterpaper, twoside, openany]{article}
+\usepackage[body={18cm, 25cm}]{geometry}
+\usepackage[spanish, activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\decimalpoint
+\usepackage{natbib}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{float}
+%\usepackage{subfloat}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{algpseudocode}
+%\usepackage{subfig}%%Para incluir subgraficos
+\usepackage{fancyhdr}%%Para incluir encabezado
+\usepackage[pdftex, pdftitle={Rotación de Vectores}, pdfauthor={J. Vergara}, pdfsubject={Vectors}, pdfkeywords={vectores, rotación, mecánica del medio continuo}, pdfpagemode=UseOutlines,bookmarks,bookmarksopen,pdfstartview=FitH,colorlinks,linkcolor=blue, urlcolor=black, citecolor=blue]{hyperref}
+\geometry{verbose,letterpaper,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+
+
+\author{Juan Carlos Vergara Gallego, César Augusto Sierra Álvarez\\
+Grupo de Investigación en Mecánica Aplicada \\ Universidad EAFIT}
+\title{\textbf{Rotación de Tensores $2D$ y $3D$}}
+
+\usepackage{cleveref}
+\begin{document}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\headheight=20pt %para cambiar el tamaño del encabezado
+\renewcommand{\headrulewidth}{0pt} %espesor del encabezado
+
+\lhead %la "L" indica a la izquierda
+{
+\begin{minipage}{3cm}
+\includegraphics[width=1.5 in]{img/logo.pdf}
+\end{minipage}
+}
+
+\fancyfoot[c]{\thepage}
+
+\maketitle
+
+
+{\bf Palabras clave:} Vector, Tensor, Rotación, Matriz de transformación.\\\\
+
+\abstract
+%
+El procedimiento para expresar un tensor que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$ es presentado. Como base del procedimiento, se explica el proceso físico y matemático para encontrar la proyección del tensor, hallar el vector de tensiones, a lo largo de direcciones arbitrarias. El vector de tensiones es descompuesto en componentes normales y tangenciales a los planos que tienen por vector normal las direcciones arbitrarias. Por último, se encuentra el tensor de tensiones en un sistema de referencia primado en el cual la dirección de los vectores normales a los planos estudiados coinciden con los ejes del sistema primado.
+%
+\section{Planteamiento del problema}
+%
+Lo que se pretende encontrar es una relación matemática que permita  expresar un tensor  \begin{large}$\left[ \sigma \right]$\end{large} que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$. En la \cref{fig:planteamiento} se presenta la descripción gráfica del problema para el caso bidimensional.
+
+En la \cref{fig:planteamiento} se presenta gráficamente para un mismo punto el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large} en el sistema de referencia $x-y-z$ y el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} en el sistema de referencia $x'-y'-z'$.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=8 cm]{img/Planteamiento.pdf}
+		\caption{Problema 2D.}
+		\label{fig:planteamiento}
+\end{figure}
+%
+El propósito de este documento es presentar el proceso mediante el cual es posible encontrar el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} si se conoce el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large}, tanto para el caso $2D$ como para el caso $3D$. También, se presenta el caso inverso, en el cual se busca encontrar \begin{large}$\left[ \sigma \right]$\end{large} si se conoce \begin{large}$\left[ \sigma' \right]$\end{large}. Por último, se presentan las expresiones matemáticas para lograr el propósito.
+%
+\section{Desarrollo del problema $2D$}
+%
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[l]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{img/Cubo2D_xy.pdf}
+		\caption{Tensor de Esfuerzos \begin{large}$\left[ \sigma \right]$\end{large} en el sistema de referencia $x-y$.}
+		\label{fig:tensorxy}
+	\end{subfigure}
+	\hspace{.5 cm}
+	%
+	\begin{subfigure}[r]{0.45\textwidth}
+		\includegraphics[width=\textwidth]{img/Cubo2D_xpyp.pdf}
+		\caption{Tensor de Esfuerzos \begin{large}$\left[ \sigma' \right]$\end{large} en el sistema de referencia $x'-y'$.}
+		\label{fig:tensorxpyp}
+	\end{subfigure}
+	\hspace{.5 cm}
+	\caption{Representación gráfica de Tensor de Esfuerzos en dos sistemas de referencia diferentes.}
+	\label{fig:tensorgrafica}
+\end{figure}
+%
+En la \cref{fig:tensorgrafica} se muestra la representación gráfica del tensor de esfuerzos en dos sistemas de referencia, $x-y$ y $x'-y'$. La \cref{eq:sigxy} corresponde al tensor de esfuerzos en el sistema de referencia $x-y$, la \cref{eq:sigxpyp} corresponde al tensor de esfuerzos en el sistema de referencia $x'-y'$.
+%
+\begin{large}
+\begin{align}
+	\left[ \sigma \right] = \left[ \begin{array}{cc}
+		\sigma_{xx} & \tau_{xy} \\
+		\tau_{xy} & \sigma_{yy}	
+	\end{array} \right] \label{eq:sigxy}
+\end{align}
+%
+\begin{align}
+	\left[ \sigma' \right] = \left[ \begin{array}{cc}
+		\sigma_{x'x'} & \tau_{x'y'} \\
+		\tau_{x'y'} & \sigma_{y'y'}	
+	\end{array} \right] \label{eq:sigxpyp}
+\end{align}
+\end{large}
+%
+Para poder escribir el tensor de esfuerzos en un sistema de referencia cartesiano $2D$, es necesario conocer la tensión normal y tangencial a dos planos que sean mutuamente perpendiculares. Los planos sobre los cuales se conocen las tensiones deben ser ortogonales a los ejes del sistema de referencia, ver \cref{fig:tensorgrafica}.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Proyecta_CaraXp.pdf}
+		\caption{Proyección del tensor de esfuerzos $\left[ \sigma \right]$ sobre el plano (cara) con vector normal $x'$.}
+		\label{fig:proycaraxp}
+\end{figure}
+%
+En la \cref{fig:proycaraxp} se muestra la proyección del tensor de esfuerzos \begin{large}$\left[ \sigma \right]$\end{large}, el cual se encuentra descrito en el sistema de referencia $x-y$. Para realizar la proyección, utilizamos la ecuación de Cauchy, \cref{eq:cauchy}:
+%
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{t}=\left[ \sigma \right] \left[n\right]
+		\label{eq:cauchy}
+	\end{align}
+\end{large}
+%
+Donde \begin{large} $\left[ n \right]$\end{large} corresponde al vector normal a la cara sobre la que estamos proyectando el tensor. 
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Directores2D.pdf}
+		\caption{Cosenos directores.}
+		\label{fig:directores2D}
+\end{figure}
+%
+En la \cref{fig:directores2D} se muestran los cosenos directores entre el sistema de referencia $x-y$ y $x'-y'$. Por tanto, para el caso de la \cref{fig:proycaraxp}:
+%
+\begin{large}
+	\begin{align}
+		\hat{n}^T=\left[ \cos \left( \theta_{x-x'} \right)\ \cos \left( \theta_{y-x'} \right)\right]
+		\label{eq:normaln}
+	\end{align}
+%
+	\begin{align}
+		\overset{\rightarrow}{T}=\left[ \sigma \right] \left[n\right]
+		\label{eq:cauchyxp}
+	\end{align}
+\end{large}
+%
+La \cref{eq:cauchyxp} corresponde al vector de tensiones sobre la cara con vector normal \begin{large} $\left[ n \right]$\end{large}. El vector \begin{large} $\overset{\rightarrow}{T}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large} y \begin{large} $\left[ n \right]$\end{large}, se encuentra descrito en el sistema de referencia $x-y$.
+%
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{T}= T_x \hat{i} + T_y \hat{j}
+		\label{eq:Tcomp}
+	\end{align}
+\end{large}
+%
+Ahora, describimos el vector \begin{large} $\overset{\rightarrow}{T}$\end{large} en el sistema de referencia $x'-y'$, para esto, debemos encontrar la matriz de transformación del sistema de referencia $x-y$ al sistema de referencia $x'-y'$. Esta, la encontramos con referencia a la \cref{fig:directores2D}.
+%
+\begin{large}
+	\begin{align}
+		\left[A\right]=
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{y-x'} \\  
+		\cos \theta_{x-y'} & \cos \theta_{y-y'}
+		\end{array}  \right] 
+		\label{eq:transfoma2D}
+	\end{align}
+\end{large}
+%
+Donde \begin{large} $\left[ A \right]$\end{large} corresponde a la matriz de transformación.
+%
+ \begin{large}
+	\begin{align}
+		\overset{\rightarrow}{T'}= \left[ A \right] \left[ \sigma \right] \left[ n \right]\label{eq:Ttransf0}\\
+		\overset{\rightarrow}{T'}= \left[ A \right] \left[ T \right]
+		\label{eq:Ttransf}
+	\end{align}
+\end{large}
+%
+La \cref{eq:Ttransf} corresponde al vector de tensiones descrito en el sistema de referencia $x'-y'$; como el eje $x'$ de este sistema de referencia es normal al plano donde se proyectó \begin{large} $\left[ \sigma \right]$\end{large}, las componentes de \begin{large} $\overset{\rightarrow}{T'}$\end{large} son normales y tangenciales a dicho plano.
+%
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{T'}= T_{x'} \hat{i'} + T_{y' }\hat{j'}
+		\label{eq:TPcomp}
+	\end{align}
+\end{large}
+%
+Donde \begin{large} $T_{x'}$\end{large} es la componente normal y \begin{large} $T_{y'}$\end{large} corresponde a la componente tangencial al plano, ver \cref{fig:TPxpyp}.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Proyecta_CaraXpProXpYp.pdf}
+		\caption{Vector $\overset{\rightarrow}{T}$ en el sistema de referencia $x'-y'$}
+		\label{fig:TPxpyp}
+\end{figure}
+%
+De la misma forma procedemos con la cara con normal $y'$.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Proyecta_CaraYp.pdf}
+		\caption{Proyección del tensor de esfuerzos $\left[ \sigma \right]$ sobre el plano (cara) con vector normal $y'$.}
+		\label{fig:proycarayp}
+\end{figure}
+%
+El vector normal \begin{large} $\left[ m \right]$\end{large} se encuentra a partir de la \cref{fig:directores2D} y es igual a:
+%
+\begin{large}
+	\begin{align}
+		\hat{m}^T=\left[ \cos \left( \theta_{x-y'} \right)\ \cos \left( \theta_{y-y'} \right)\right]
+		\label{eq:normalm}
+	\end{align}
+%
+	\begin{align}
+		\overset{\rightarrow}{G}=\left[ \sigma \right] \left[m\right]
+		\label{eq:cauchyyp}
+	\end{align}
+\end{large}
+%
+La \cref{eq:cauchyyp} corresponde al vector de tensiones sobre la cara con vector normal \begin{large} $\left[ m \right]$\end{large}. El vector \begin{large} $\overset{\rightarrow}{G}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large} y \begin{large} $\left[ m \right]$\end{large}, se encuentra descrito en el sistema de referencia $x-y$.
+%
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{G}= G_x \hat{i} + G_y \hat{j}
+		\label{eq:Gcomp}
+	\end{align}
+\end{large}
+%
+Ahora, describimos el vector \begin{large} $\overset{\rightarrow}{G}$\end{large} en el sistema de referencia $x'-y'$, para esto, utilizamos nuevamente la matriz de transformación del sistema de referencia $x-y$ al sistema de referencia $x'-y'$, \cref{fig:directores2D}.
+%
+ \begin{large}
+	\begin{align}
+		\overset{\rightarrow}{G'}= \left[ A \right] \left[ \sigma \right] \left[ m\right]\label{eq:Gtransf0}\\
+		\overset{\rightarrow}{G'}= \left[ A \right] \left[ G \right]
+		\label{eq:Gtransf}
+	\end{align}
+\end{large}
+%
+La \cref{eq:Gtransf} corresponde al vector de tensiones descrito en el sistema de referencia $x'-y'$; como el eje $y'$ de este sistema de referencia es normal al plano donde se proyectó \begin{large} $\left[ \sigma \right]$\end{large}, las componentes de \begin{large} $\overset{\rightarrow}{G'}$\end{large} son normales y tangenciales a dicho plano.
+%
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{G'}= G_{x'} \hat{i'} + G_{y' }\hat{j'}
+		\label{eq:GPcomp}
+	\end{align}
+\end{large}
+%
+Donde \begin{large} $G_{x'}$\end{large} es la componente tangencial y \begin{large} $G_{y'}$\end{large} corresponde a la componente normal al plano, ver \cref{fig:GPxpyp}.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Proyecta_CaraYpProXpYp.pdf}
+		\caption{Vector $\overset{\rightarrow}{G}$ en el sistema de referencia $x'-y'$}
+		\label{fig:GPxpyp}
+\end{figure}
+%
+Superponiendo las figuras \ref{fig:TPxpyp} y \ref{fig:GPxpyp}, concluimos, ya que los planos de corte son perpendiculares entre si, que los vectores \begin{large} $\overset{\rightarrow}{T'}$\end{large} y \begin{large} $\overset{\rightarrow}{G'}$\end{large}, descritos en el sistema de referencia $x'-y'$, corresponden al tensor \begin{large} $\left[ \sigma' \right]$\end{large}, ver \cref{fig:equiv2D}.
+%
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=12 cm]{img/Equivalencia.pdf}
+		\caption{}
+		\label{fig:equiv2D}
+\end{figure}
+%
+Por tanto:
+%
+\begin{large}
+	\begin{align}
+		T_{y'} = G_{x'}=\tau_{x'y'}
+	\end{align}
+	%
+	\begin{align}
+		T_{x'}=\sigma_{x'x'}
+	\end{align}
+	%
+	\begin{align}
+		G_{y'}=\sigma_{y'y'}
+	\end{align}
+\end{large}
+%
+\begin{large}
+	\begin{align}
+		\left[\sigma\right]=
+		\left[ \begin{array}{cc}
+		T_{x'} & G_{x'} \\  
+		T_{y'} & G_{y'}
+		\end{array}  \right] =
+		\left[ \begin{array}{cc}
+		\sigma_{x'x'} & \tau_{y'x'} \\  
+		\tau_{x'y'} & \sigma_{y'y'}
+		\end{array}  \right]
+		\label{eq:equiv}
+	\end{align}
+\end{large}
+%
+Luego de varias manipulaciones algebraicas, manipulaciones sobre las ecuaciones \ref{eq:Ttransf0} y \ref{eq:Gtransf0}, es posible llegar a la ecuación que nos permite transformar un tensor de tensiones descrito en un sistema de referencia $x-y$ a un sistema de referencia $x'-y'$.
+%
+\begin{large}
+	\begin{align}
+		\left[ \sigma' \right] = \left[ A \right] \left[ \sigma \right] \left[ A \right]^T 
+		\label{eq:transforma2Dtensor}
+	\end{align}
+\end{large}
+%
+\section{Manipulaciones Algebraicas para hallar la Ecuación \ref{eq:transforma2Dtensor}}
+%
+El tensor \begin{large} $\left[ \sigma' \right]$\end{large}, \cref{eq:sigxpyp}, es posible reescribirlo de la siguiente, \cref{eq:sigPrees}:
+%
+\begin{large}
+	\begin{align}
+		\left[ \begin{array}{cc}
+		\sigma_{x'x'} & \tau_{y'x'} \\  
+		\tau_{x'y'} & \sigma_{y'y'}
+		\end{array}  \right]=
+		\left[ \begin{array}{cc}
+		\sigma_{x'x'} & 0 \\  
+		\tau_{x'y'} & 0
+		\end{array}  \right] +
+		\left[ \begin{array}{cc}
+		0 & \tau_{y'x'} \\  
+		0 & \sigma_{y'y'}
+		\end{array}  \right]
+		\label{eq:sigPrees}
+	\end{align}
+\end{large}
+%
+La parte derecha de la \cref{eq:sigPrees} la podemos reescribir como:
+%
+\begin{large}
+%
+	\begin{align}
+		\left[ \begin{array}{cc}
+		\sigma_{x'x'} & 0 \\  
+		\tau_{x'y'} & 0
+		\end{array}  \right]=
+%
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{y-x'} \\  
+		\cos \theta_{x-y'} & \cos \theta_{y-y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\sigma_{xx} & \tau_{xy} \\  
+		\tau_{xy} & \sigma_{y'y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & 0\\ 
+		\cos \theta_{y-x'} & 0
+		\end{array}  \right]
+		\label{eq:Tequ}
+	\end{align}
+%
+	\begin{align}
+		\left[ \begin{array}{cc}
+		 0 & \tau_{x'y'} \\  
+		0 & \sigma_{y'y'} 
+		\end{array}  \right]=
+%		
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{y-x'} \\  
+		\cos \theta_{x-y'} & \cos \theta_{y-y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\sigma_{xx} & \tau_{xy} \\  
+		\tau_{xy} & \sigma_{y'y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-y'} & 0\\ 
+		\cos \theta_{y-y'} & 0
+		\end{array}  \right]
+		\label{eq:Gequ}
+	\end{align}
+\end{large}
+%
+Por tanto, la \cref{eq:sigPrees} es posible reescribirla agrupando términos:
+%
+\begin{large}
+	\begin{align}
+	\left[\sigma\right]=
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{y-x'} \\  
+		\cos \theta_{x-y'} & \cos \theta_{y-y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\sigma_{xx} & \tau_{xy} \\  
+		\tau_{xy} & \sigma_{y'y'}
+		\end{array}  \right]\nonumber\\
+%
+\left(
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & 0\\ 
+		\cos \theta_{y-x'} & 0
+		\end{array}  \right]+
+%		
+		\left[ \begin{array}{cc}
+		0 & \cos \theta_{x-y'}\\ 
+		0 & \cos \theta_{y-y'}
+		\end{array}  \right]
+\right)
+	\end{align}
+\end{large}
+%
+%
+\begin{large}
+	\begin{align}
+	\left[\sigma\right]=
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{y-x'} \\  
+		\cos \theta_{x-y'} & \cos \theta_{y-y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\sigma_{xx} & \tau_{xy} \\  
+		\tau_{xy} & \sigma_{y'y'}
+		\end{array}  \right]
+%		
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{x-y'}\\ 
+		\cos \theta_{y-x'} &\cos \theta_{y-y'}
+		\end{array}  \right]
+		\label{eq:siPnew}
+	\end{align}
+\end{large}
+%
+Donde:
+%
+\begin{large}
+	\begin{align}
+	\left[A\right]^T=	
+		\left[ \begin{array}{cc}
+		\cos \theta_{x-x'} & \cos \theta_{x-y'}\\ 
+		\cos \theta_{y-x'} &\cos \theta_{y-y'}
+		\end{array}  \right]
+		\label{eq:transfortrans}
+	\end{align}
+\end{large}
+%
+Reescribiendo la \cref{eq:transforma2Dtensor}.
+%
+\begin{large}
+	\begin{align}
+		\left[ \sigma' \right] = \left[ A \right] \left[ \sigma \right] \left[ A \right]^T 
+		\label{eq:transforma2Dtensor2}
+	\end{align}
+\end{large}
+
+%
+\end{document}
