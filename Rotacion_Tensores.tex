@@ -18,13 +18,13 @@
 %\usepackage{subfig}%%Para incluir subgraficos
 \usepackage{fancyhdr}%%Para incluir encabezado
 \usepackage[pdftex, pdftitle={Rotación de Vectores}, pdfauthor={J. Vergara}, pdfsubject={Vectors}, pdfkeywords={vectores, rotación, mecánica del medio continuo}, pdfpagemode=UseOutlines,bookmarks,bookmarksopen,pdfstartview=FitH,colorlinks,linkcolor=blue, urlcolor=black, citecolor=blue]{hyperref}
-\geometry{verbose,letterpaper,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\geometry{verbose,letterpaper,tmargin=2cm,bmargin=3.0cm,lmargin=2cm,rmargin=2cm}
 
 
 \author{Juan Carlos Vergara Gallego, César Augusto Sierra Álvarez\\
 Grupo de Investigación en Mecánica Aplicada \\ Universidad EAFIT}
-\title{\textbf{Rotación de Tensores $2D$ y $3D$}}
-
+\title{\textbf{Rotación de Tensores $2D$}}
+%
 \usepackage{cleveref}
 \begin{document}
 
@@ -49,13 +49,13 @@ Grupo de Investigación en Mecánica Aplicada \\ Universidad EAFIT}
 
 \abstract
 %
-El procedimiento para expresar un tensor que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$ es presentado. Como base del procedimiento, se explica el proceso físico y matemático para encontrar la proyección del tensor, hallar el vector de tensiones, a lo largo de direcciones arbitrarias. El vector de tensiones es descompuesto en componentes normales y tangenciales a los planos que tienen por vector normal las direcciones arbitrarias. Por último, se encuentra el tensor de tensiones en un sistema de referencia primado en el cual la dirección de los vectores normales a los planos estudiados coinciden con los ejes del sistema primado.
+Un procedimiento para expresar un tensor que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$ es presentado. Como base del procedimiento, se explica el proceso físico y matemático para encontrar la proyección del tensor (hallar el vector de tensiones) a lo largo de direcciones arbitrarias. El vector de tensiones es descompuesto en componentes normales y tangenciales a los planos que tienen por vector normal las direcciones arbitrarias. Por último, se encuentra el tensor de tensiones en un sistema de referencia primado en el cual la dirección de los vectores normales a los planos estudiados coinciden con los ejes del sistema primado.
 %
 \section{Planteamiento del problema}
 %
-Lo que se pretende encontrar es una relación matemática que permita  expresar un tensor  \begin{large}$\left[ \sigma \right]$\end{large} que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$. En la \cref{fig:planteamiento} se presenta la descripción gráfica del problema para el caso bidimensional.
-
-En la \cref{fig:planteamiento} se presenta gráficamente para un mismo punto el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large} en el sistema de referencia $x-y-z$ y el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} en el sistema de referencia $x'-y'-z'$.
+El propósito de este documento es presentar el proceso mediante el cual es posible encontrar el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} si se conoce el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large}, tanto para el caso $2D$ como para el caso $3D$. También, se presenta el caso inverso, en el cual se busca encontrar \begin{large}$\left[ \sigma \right]$\end{large} si se conoce \begin{large}$\left[ \sigma' \right]$\end{large}. Por último, se presentan las expresiones matemáticas para lograr el propósito.
+%
+En la \cref{fig:planteamiento} se presenta la descripción gráfica del problema para el caso bidimensional. En ésta \cref{fig:planteamiento} se presenta gráficamente  el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large} en el sistema de referencia $x-y-z$ y el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} en el sistema de referencia $x'-y'-z'$ para un mismo punto. Lo que se pretende encontrar es una relación matemática que permita  expresar un tensor  \begin{large}$\left[ \sigma \right]$\end{large} que se encuentra descrito en el sistema de referencia cartesiano $x-y-z$ en otro sistema de referencia cartesiano $x'-y'-z'$. 
 %
 \begin{figure}[H]
 	\centering
@@ -64,9 +64,10 @@ En la \cref{fig:planteamiento} se presenta gráficamente para un mismo punto el 
 		\label{fig:planteamiento}
 \end{figure}
 %
-El propósito de este documento es presentar el proceso mediante el cual es posible encontrar el tensor de tensiones \begin{large}$\left[ \sigma' \right]$\end{large} si se conoce el tensor de tensiones \begin{large}$\left[ \sigma \right]$\end{large}, tanto para el caso $2D$ como para el caso $3D$. También, se presenta el caso inverso, en el cual se busca encontrar \begin{large}$\left[ \sigma \right]$\end{large} si se conoce \begin{large}$\left[ \sigma' \right]$\end{large}. Por último, se presentan las expresiones matemáticas para lograr el propósito.
-%
 \section{Desarrollo del problema $2D$}
+%
+En la \cref{fig:tensorgrafica} se muestra la representación gráfica del tensor de esfuerzos en dos sistemas de referencia, $x-y$ y $x'-y'$. 
+%
 %
 \begin{figure}[H]
 	\centering
@@ -87,8 +88,8 @@ El propósito de este documento es presentar el proceso mediante el cual es posi
 	\label{fig:tensorgrafica}
 \end{figure}
 %
-En la \cref{fig:tensorgrafica} se muestra la representación gráfica del tensor de esfuerzos en dos sistemas de referencia, $x-y$ y $x'-y'$. La \cref{eq:sigxy} corresponde al tensor de esfuerzos en el sistema de referencia $x-y$, la \cref{eq:sigxpyp} corresponde al tensor de esfuerzos en el sistema de referencia $x'-y'$.
-%
+La representación matricial del tensor de esfuerzos en el sistema de referencia $x-y$  y en el sistema de referencia $x'-y'$ está dado por la \cref{eq:sigxy} y la \cref{eq:sigxpyp}, respectivamente.
+
 \begin{large}
 \begin{align}
 	\left[ \sigma \right] = \left[ \begin{array}{cc}
@@ -105,16 +106,28 @@ En la \cref{fig:tensorgrafica} se muestra la representación gráfica del tensor
 \end{align}
 \end{large}
 %
-Para poder escribir el tensor de esfuerzos en un sistema de referencia cartesiano $2D$, es necesario conocer la tensión normal y tangencial a dos planos que sean mutuamente perpendiculares. Los planos sobre los cuales se conocen las tensiones deben ser ortogonales a los ejes del sistema de referencia, ver \cref{fig:tensorgrafica}.
-%
+Para poder escribir el tensor de esfuerzos en un sistema de referencia cartesiano rotado $x'-y'$ a partir del tensor en el sistema de referencia original $x-y$, es necesario inicialmente conocer el vector de tracciones (proyección del tensor de esfuerzos), en planos ortogonales a los ejes $x'$ e $y'$. En las \cref{fig:proycaraxp} y \cref{fig:proycarayp} se muestra la proyección del tensor de esfuerzos \begin{large}$\left[ \sigma \right]$\end{large}, sobre los planos cuyo vector normal está en dirección  $x'$ e $y'$, respectivamente. 
+
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=12 cm]{img/Proyecta_CaraXp.pdf}
-		\caption{Proyección del tensor de esfuerzos $\left[ \sigma \right]$ sobre el plano (cara) con vector normal $x'$.}
+	\begin{subfigure}[l]{0.45\textwidth}
+		\includegraphics[width=9.0cm]{img/Proyecta_CaraXp.pdf}
+		\caption{\small{Proyección de $\left[ \sigma \right]$ sobre el plano con vector normal $x'$.}}
 		\label{fig:proycaraxp}
+	\end{subfigure}
+	\hspace{0.5 cm}
+	%
+	\begin{subfigure}[r]{0.45\textwidth}
+		\includegraphics[width=9.0cm]{img/Proyecta_CaraYp.pdf}
+		\caption{\small{Proyección de $\left[ \sigma \right]$ sobre el plano con vector normal $y'$.}}
+		\label{fig:proycarayp}
+	\end{subfigure}
+	\hspace{.5 cm}
+	\caption{Vector de tracciones sobre los planos (caras) con vector normal $x'$ e $y'$ }
+	\label{fig:proycara}
 \end{figure}
-%
-En la \cref{fig:proycaraxp} se muestra la proyección del tensor de esfuerzos \begin{large}$\left[ \sigma \right]$\end{large}, el cual se encuentra descrito en el sistema de referencia $x-y$. Para realizar la proyección, utilizamos la ecuación de Cauchy, \cref{eq:cauchy}:
+
+Para realizar la proyección, utilizamos la ecuación de Cauchy, dada por la \cref{eq:cauchy}:
 %
 \begin{large}
 	\begin{align}
@@ -123,39 +136,79 @@ En la \cref{fig:proycaraxp} se muestra la proyección del tensor de esfuerzos \b
 	\end{align}
 \end{large}
 %
-Donde \begin{large} $\left[ n \right]$\end{large} corresponde al vector normal a la cara sobre la que estamos proyectando el tensor. 
+Donde \begin{large} $\left[ n \right]$\end{large} corresponde al vector normal a la cara sobre la que estamos proyectando el tensor. \\
+
+De esta forma el vector de tracciones sobre los planos con vector normal $x'$ e $y'$ de la \cref{fig:proycara} están dados por la \cref {eq:cauchyxp} y  \cref {eq:cauchyyp} , respectivamente.  
 %
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=12 cm]{img/Directores2D.pdf}
-		\caption{Cosenos directores.}
-		\label{fig:directores2D}
-\end{figure}
+La \cref{eq:cauchyyp} corresponde al vector de tensiones sobre la cara con vector normal \begin{large} $\left[ m \right]$\end{large}. El vector \begin{large} $\overset{\rightarrow}{G}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large} y \begin{large} $\left[ m \right]$\end{large}, se encuentra descrito en el sistema de referencia $x-y$.
 %
-En la \cref{fig:directores2D} se muestran los cosenos directores entre el sistema de referencia $x-y$ y $x'-y'$. Por tanto, para el caso de la \cref{fig:proycaraxp}:
+\begin{large}
+	\begin{align}
+		\overset{\rightarrow}{T}=\left[ \sigma \right] \left[\hat{n}\right]
+		\label{eq:cauchyxp}
+	\end{align}
+%	
+	\begin{align}
+		\overset{\rightarrow}{G}=\left[ \sigma \right] \left[\hat{m}\right]
+		\label{eq:cauchyyp}
+	\end{align}
+\end{large}
+%
+Donde \begin{large} $\left[ n \right]$\end{large}  y \begin{large} $\left[ m \right]$\end{large} son los vectores normales, los cuales son obtenidos a partir de los cosenos directores entre el sistema de referencia $x-y$ y $x'-y'$, de acuerdo a lo mostrado en la \cref{fig:directores2D}. se muestran los cosenos directores entre el sistema de referencia $x-y$ y $x'-y'$. Los vectores \begin{large} $\left[ n \right]$\end{large}  y \begin{large} $\left[ m \right]$\end{large} están dados por: 
 %
 \begin{large}
 	\begin{align}
 		\hat{n}^T=\left[ \cos \left( \theta_{x-x'} \right)\ \cos \left( \theta_{y-x'} \right)\right]
 		\label{eq:normaln}
 	\end{align}
-%
 	\begin{align}
-		\overset{\rightarrow}{T}=\left[ \sigma \right] \left[n\right]
-		\label{eq:cauchyxp}
+		\hat{m}^T=\left[ \cos \left( \theta_{x-y'} \right)\ \cos \left( \theta_{y-y'} \right)\right]
+		\label{eq:normalm}
 	\end{align}
 \end{large}
 %
-La \cref{eq:cauchyxp} corresponde al vector de tensiones sobre la cara con vector normal \begin{large} $\left[ n \right]$\end{large}. El vector \begin{large} $\overset{\rightarrow}{T}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large} y \begin{large} $\left[ n \right]$\end{large}, se encuentra descrito en el sistema de referencia $x-y$.
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=11 cm]{img/Directores2D.pdf}
+		\caption{Cosenos directores.}
+		\label{fig:directores2D}
+\end{figure}
 %
-\begin{large}
-	\begin{align}
-		\overset{\rightarrow}{T}= T_x \hat{i} + T_y \hat{j}
-		\label{eq:Tcomp}
-	\end{align}
-\end{large}
+Hasta este momento el vector \begin{large} $\overset{\rightarrow}{T}$\end{large} y  el vector \begin{large} $\overset{\rightarrow}{G}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large}, \begin{large} $\hat{n}$\end{large} y \begin{large} $\hat{m}$\end{large}, se encuentran descrito en el sistema de referencia $x-y$. 
 %
-Ahora, describimos el vector \begin{large} $\overset{\rightarrow}{T}$\end{large} en el sistema de referencia $x'-y'$, para esto, debemos encontrar la matriz de transformación del sistema de referencia $x-y$ al sistema de referencia $x'-y'$. Esta, la encontramos con referencia a la \cref{fig:directores2D}.
+%\begin{large}
+%	\begin{align}
+%		\overset{\rightarrow}{T}= T_x \hat{i} + T_y \hat{j}
+%		\label{eq:Tcomp}
+%	\end{align}
+%	\begin{align}
+%		\overset{\rightarrow}{G}= G_x \hat{i} + G_y \hat{j}
+%		\label{eq:Gcomp}
+%	\end{align}
+%\end{large}
+%
+Lo que se debe hacer ahora es describir el vector \begin{large} $\overset{\rightarrow}{T}$\end{large} y el vector  \begin{large} $\overset{\rightarrow}{G}$\end{large} en el sistema de referencia $x'-y'$, conforme a como se representa en la \cref{fig:proycaraxpyp}.  
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[l]{0.45\textwidth}
+		\includegraphics[width=9.0cm]{img/Proyecta_CaraXpProXpYp.pdf}
+		\caption{\small{Vector $\overset{\rightarrow}{T}$ en el sistema de referencia $x'-y'$}}
+		\label{fig:TPxpyp}
+	\end{subfigure}
+	\hspace{0.5 cm}
+	%
+	\begin{subfigure}[r]{0.45\textwidth}
+		\includegraphics[width=9.0cm]{img/Proyecta_CaraYpProXpYp.pdf}
+		\caption{\small{Vector $\overset{\rightarrow}{G}$ en el sistema de referencia $x'-y'$.}}
+		\label{fig:GPxpyp}
+	\end{subfigure}
+	\hspace{.5 cm}
+	\caption{Vector de tracciones sobre los planos (caras) con vector normal $x'$ e $y'$ proyectados en el sistema de referencia $x'y'$}
+	\label{fig:proycaraxpyp}
+\end{figure}
+
+Para realizar esa descripción, debemos encontrar la matriz de transformación, \begin{large} $\left[ A \right]$\end{large}, del sistema de referencia $x-y$ al sistema de referencia $x'-y'$. Ésta la encontramos con referencia a la \cref{fig:directores2D}.
 %
 \begin{large}
 	\begin{align}
@@ -168,100 +221,40 @@ Ahora, describimos el vector \begin{large} $\overset{\rightarrow}{T}$\end{large}
 	\end{align}
 \end{large}
 %
-Donde \begin{large} $\left[ A \right]$\end{large} corresponde a la matriz de transformación.
+Aplicando esta transformación sobre los vectores \begin{large} $\overset{\rightarrow}{T}$\end{large} y \begin{large} $\overset{\rightarrow}{G}$\end{large} se tiene: 
 %
+ \begin{large}
+	\begin{align}
+		\overset{\rightarrow}{T'}= \left[ A \right] \left[ T \right]\label{eq:Ttransf} \\
+		\overset{\rightarrow}{G'}= \left[ A \right] \left[ G \right]\label{eq:Gtransf} 		
+	\end{align}
+\end{large}
+%
+Que escrito en términos del tensor  \begin{large} $\left[ \sigma \right]$\end{large} y los vectores normales \begin{large} $\hat{n}$\end{large} y \begin{large} $\hat{m}$\end{large} se obtiene: 
  \begin{large}
 	\begin{align}
 		\overset{\rightarrow}{T'}= \left[ A \right] \left[ \sigma \right] \left[ n \right]\label{eq:Ttransf0}\\
-		\overset{\rightarrow}{T'}= \left[ A \right] \left[ T \right]
-		\label{eq:Ttransf}
+		\overset{\rightarrow}{G'}= \left[ A \right] \left[ \sigma \right] \left[ m\right]\label{eq:Gtransf0}
 	\end{align}
 \end{large}
 %
-La \cref{eq:Ttransf} corresponde al vector de tensiones descrito en el sistema de referencia $x'-y'$; como el eje $x'$ de este sistema de referencia es normal al plano donde se proyectó \begin{large} $\left[ \sigma \right]$\end{large}, las componentes de \begin{large} $\overset{\rightarrow}{T'}$\end{large} son normales y tangenciales a dicho plano.
+Ahora,  como los ejes $x'$ $y'$ son normales al planos donde se proyectó \begin{large} $\left[ \sigma \right]$\end{large}, las componentes del vector \begin{large} $\overset{\rightarrow}{T'}$\end{large} y del vector  \begin{large} $\overset{\rightarrow}{G'}$\end{large} son normales y tangenciales a dichos planos, respectivamente. De esta forma, si se escribe por extensión los vectores se tiene:
 %
 \begin{large}
 	\begin{align}
-		\overset{\rightarrow}{T'}= T_{x'} \hat{i'} + T_{y' }\hat{j'}
-		\label{eq:TPcomp}
+		\overset{\rightarrow}{T'}= T_{x'} \hat{i'} + T_{y' }\hat{j'} \label{eq:TPcomp}\\
+		\overset{\rightarrow}{G'}= G_{x'} \hat{i'} + G_{y' }\hat{j'} \label{eq:GPcomp}			
 	\end{align}
 \end{large}
 %
-Donde \begin{large} $T_{x'}$\end{large} es la componente normal y \begin{large} $T_{y'}$\end{large} corresponde a la componente tangencial al plano, ver \cref{fig:TPxpyp}.
-%
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=12 cm]{img/Proyecta_CaraXpProXpYp.pdf}
-		\caption{Vector $\overset{\rightarrow}{T}$ en el sistema de referencia $x'-y'$}
-		\label{fig:TPxpyp}
-\end{figure}
-%
-De la misma forma procedemos con la cara con normal $y'$.
-%
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=12 cm]{img/Proyecta_CaraYp.pdf}
-		\caption{Proyección del tensor de esfuerzos $\left[ \sigma \right]$ sobre el plano (cara) con vector normal $y'$.}
-		\label{fig:proycarayp}
-\end{figure}
-%
-El vector normal \begin{large} $\left[ m \right]$\end{large} se encuentra a partir de la \cref{fig:directores2D} y es igual a:
-%
-\begin{large}
-	\begin{align}
-		\hat{m}^T=\left[ \cos \left( \theta_{x-y'} \right)\ \cos \left( \theta_{y-y'} \right)\right]
-		\label{eq:normalm}
-	\end{align}
-%
-	\begin{align}
-		\overset{\rightarrow}{G}=\left[ \sigma \right] \left[m\right]
-		\label{eq:cauchyyp}
-	\end{align}
-\end{large}
-%
-La \cref{eq:cauchyyp} corresponde al vector de tensiones sobre la cara con vector normal \begin{large} $\left[ m \right]$\end{large}. El vector \begin{large} $\overset{\rightarrow}{G}$\end{large}, al igual que  \begin{large} $\left[ \sigma \right]$\end{large} y \begin{large} $\left[ m \right]$\end{large}, se encuentra descrito en el sistema de referencia $x-y$.
-%
-\begin{large}
-	\begin{align}
-		\overset{\rightarrow}{G}= G_x \hat{i} + G_y \hat{j}
-		\label{eq:Gcomp}
-	\end{align}
-\end{large}
-%
-Ahora, describimos el vector \begin{large} $\overset{\rightarrow}{G}$\end{large} en el sistema de referencia $x'-y'$, para esto, utilizamos nuevamente la matriz de transformación del sistema de referencia $x-y$ al sistema de referencia $x'-y'$, \cref{fig:directores2D}.
-%
- \begin{large}
-	\begin{align}
-		\overset{\rightarrow}{G'}= \left[ A \right] \left[ \sigma \right] \left[ m\right]\label{eq:Gtransf0}\\
-		\overset{\rightarrow}{G'}= \left[ A \right] \left[ G \right]
-		\label{eq:Gtransf}
-	\end{align}
-\end{large}
-%
-La \cref{eq:Gtransf} corresponde al vector de tensiones descrito en el sistema de referencia $x'-y'$; como el eje $y'$ de este sistema de referencia es normal al plano donde se proyectó \begin{large} $\left[ \sigma \right]$\end{large}, las componentes de \begin{large} $\overset{\rightarrow}{G'}$\end{large} son normales y tangenciales a dicho plano.
-%
-\begin{large}
-	\begin{align}
-		\overset{\rightarrow}{G'}= G_{x'} \hat{i'} + G_{y' }\hat{j'}
-		\label{eq:GPcomp}
-	\end{align}
-\end{large}
-%
-Donde \begin{large} $G_{x'}$\end{large} es la componente tangencial y \begin{large} $G_{y'}$\end{large} corresponde a la componente normal al plano, ver \cref{fig:GPxpyp}.
-%
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=12 cm]{img/Proyecta_CaraYpProXpYp.pdf}
-		\caption{Vector $\overset{\rightarrow}{G}$ en el sistema de referencia $x'-y'$}
-		\label{fig:GPxpyp}
-\end{figure}
-%
-Superponiendo las figuras \ref{fig:TPxpyp} y \ref{fig:GPxpyp}, concluimos, ya que los planos de corte son perpendiculares entre si, que los vectores \begin{large} $\overset{\rightarrow}{T'}$\end{large} y \begin{large} $\overset{\rightarrow}{G'}$\end{large}, descritos en el sistema de referencia $x'-y'$, corresponden al tensor \begin{large} $\left[ \sigma' \right]$\end{large}, ver \cref{fig:equiv2D}.
+Donde para el vector  \begin{large} $\overset{\rightarrow}{T'}$\end{large}, \begin{large} $T_{x'}$\end{large} es la componente normal y \begin{large} $T_{y'}$\end{large} es la componente tangencial al plano con vector normal en dirección de ${x'}$ , ver \cref{fig:TPxpyp}. Para el vector \begin{large} $\overset{\rightarrow}{G'}$\end{large}, \begin{large} $G_{x'}$\end{large} es la componente tangencial y \begin{large} $G_{y'}$\end{large} es la componente normal al plano con vector normal en dirección de ${y'}$ ver \cref{fig:GPxpyp}.
+
+Superponiendo las figuras \ref{fig:TPxpyp} y \ref{fig:GPxpyp} y en que los  planos de corte son perpendiculares entre si, concluimos que los vectores \begin{large} $\overset{\rightarrow}{T'}$\end{large} y \begin{large} $\overset{\rightarrow}{G'}$\end{large}, descritos en el sistema de referencia $x'-y'$, corresponden al tensor \begin{large} $\left[ \sigma' \right]$\end{large}, ver \cref{fig:equiv2D}.
 %
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=12 cm]{img/Equivalencia.pdf}
-		\caption{}
+		\caption{Representación tensor en sistema de referencia $x'-y'$}
 		\label{fig:equiv2D}
 \end{figure}
 %
@@ -283,7 +276,7 @@ Por tanto:
 %
 \begin{large}
 	\begin{align}
-		\left[\sigma\right]=
+		\left[\sigma'\right]=
 		\left[ \begin{array}{cc}
 		T_{x'} & G_{x'} \\  
 		T_{y'} & G_{y'}
@@ -296,7 +289,7 @@ Por tanto:
 	\end{align}
 \end{large}
 %
-Luego de varias manipulaciones algebraicas, manipulaciones sobre las ecuaciones \ref{eq:Ttransf0} y \ref{eq:Gtransf0}, es posible llegar a la ecuación que nos permite transformar un tensor de tensiones descrito en un sistema de referencia $x-y$ a un sistema de referencia $x'-y'$.
+Luego de varias manipulaciones algebraicas sobre las ecuaciones \ref{eq:Ttransf0} y \ref{eq:Gtransf0}, es posible llegar a la ecuación que nos permite transformar un tensor de tensiones descrito en un sistema de referencia $x-y$ a un sistema de referencia $x'-y'$.
 %
 \begin{large}
 	\begin{align}
@@ -305,6 +298,7 @@ Luego de varias manipulaciones algebraicas, manipulaciones sobre las ecuaciones 
 	\end{align}
 \end{large}
 %
+\newpage
 \section{Manipulaciones Algebraicas para hallar la Ecuación \ref{eq:transforma2Dtensor}}
 %
 El tensor \begin{large} $\left[ \sigma' \right]$\end{large}, \cref{eq:sigxpyp}, es posible reescribirlo de la siguiente, \cref{eq:sigPrees}:
